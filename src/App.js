@@ -6,14 +6,14 @@ const messages = [
   "Invest your new income 🤑",
 ];
 export default function App() {
-  const [steps, setSteps] = useState(1);
+  const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
   // const steps = 1;
   function handlePrevious() {
-    steps >= 2 && setSteps((s) => s - 1);
+    step >= 2 && setStep((s) => s - 1);
   }
   function handleNext() {
-    steps <= 2 && setSteps((s) => s + 1);
+    step <= 2 && setStep((s) => s + 1);
   }
   return (
     <>
@@ -23,12 +23,12 @@ export default function App() {
       {isOpen && (
         <div className="steps">
           <div className="numbers">
-            <div className={steps >= 1 ? "active" : ""}>1</div>
-            <div className={steps >= 2 ? "active" : ""}>2</div>
-            <div className={steps >= 3 ? "active" : ""}>3</div>
+            <div className={step >= 1 ? "active" : ""}>1</div>
+            <div className={step >= 2 ? "active" : ""}>2</div>
+            <div className={step >= 3 ? "active" : ""}>3</div>
           </div>
           <p className="message">
-            Step {steps}: {messages[steps - 1]}
+            Step {step}: {messages[step - 1]}
           </p>
           <div className="buttons">
             <button
